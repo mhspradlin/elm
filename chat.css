@@ -1,0 +1,53 @@
+/* Styles for the decentralized chat service */
+
+/* Style for the input text box */
+#inputField {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Verdana", "Geneva", "sans-serif";
+    line-height: 25px;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 10px;
+    border: 1px solid #61A3E6;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+/* Style for the scrolling box of text */
+#messageBox {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font-size: 15px;
+    font-family: "Verdana", "Geneva", "sans-serif";
+    line-height: 20px;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 0px;
+    border: 0px solid #61A3E6;
+    /*box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);*/
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}

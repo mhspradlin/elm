@@ -84,7 +84,6 @@ addEdge (c1, c2) world =
 
 --This function takes a connection and a world, and uses the first to set the
 -- names of all the connections in the list of nodes and edges that share an ID
---Already done
 setName : Connection -> World -> World
 setName conn world = let upConn new old = if old.id == new.id then new else old
                          upEdge new (old1, old2) = (upConn new old1, 

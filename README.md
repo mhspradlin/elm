@@ -1,2 +1,0 @@
-# elm
-Projects in Elm!

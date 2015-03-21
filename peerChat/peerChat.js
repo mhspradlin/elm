@@ -14,7 +14,7 @@ var peerData = Elm.fullscreen(Elm.Chat, {
     fromJS: ""
 });
 
-//Clobber our peer and set a new  from the Peer.js library
+//Clobber our peer and create a new peer from the Peer.js library
 //This is 'us', and the ID we get is the one that others use to connect with us
 // and is a unique identifier within our network
 function makePeer(id) {

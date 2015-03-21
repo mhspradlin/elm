@@ -255,12 +255,7 @@ parseData xs state = case xs of
     [x] -> state --Is ill-formatted, TODO should report error
     peerID :: content :: [] -> if --A message that's meant to end with us 
         | String.startsWith "msg" content -> 
-            { state | --lastMsg <- String.concat 
-                      --              [ peerID
-                      --              , ": "
-                      --              , String.dropLeft 3 content
-                      --              ]
-                      messages <- (String.concat
+            { state | messages <- (String.concat
                                     [ "("
                                     , peerID
                                     , ") "

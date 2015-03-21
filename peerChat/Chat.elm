@@ -485,9 +485,8 @@ visualizeWorld (w,h) state =
         listforms = List.append edges nodes
    in C.collage w h listforms
        
---Set up a few buttons for testing the signals and printing the output we get
--- from the 
---Takes the current state, screen dimensions, and the content of the text box
+--Produces a view of the current state that fills the whole window
+--Takes the current state and screen dimensions
 view : State -> (Int, Int) -> E.Element
 view state (w,h) = 
     let defaultStyle = F.defaultStyle

@@ -12,4 +12,5 @@ the box if you're looking to host an instance yourself. However, if that's what
 you're looking to do, it wouldn't be difficult to set it up.
 
 I'm hosting an implementation at [peerchat.us](http://peerchat.us) if you'd like
-to see what it looks like.
+to see what it looks like. If you're the only one connected, I recommend opening
+the page in at least one other tab so that it's not so lonely.

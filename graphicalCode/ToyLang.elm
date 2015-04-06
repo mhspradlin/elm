@@ -93,5 +93,27 @@ toForm token = case token of
 
 --The result of parsing this language will be a list of positioned forms with two
 -- positions in the code where the xpos and ypos of the square is represented
-parse : String -> List (GC.Form, Int, Int)
-parse code = List.filter (not << isAnd) (tokenize code) |> List.map toForm
+parseCode : String -> List (GC.Form, Int, Int)
+parseCode code = List.filter (not << isAnd) (tokenize code) |> List.map toForm
+
+--Going the other way, we can take one input Object, a reference set of code,
+-- and then make sure that the associated constants are changed to represent its
+-- position
+--There is a long way to go with this one; probably need to ID the objects and
+-- associated constants and then related parts of syntax... hmm...
+parseObjects : (GC.Form, Int, Int) -> String -> String
+parseObjects (obj, xpos, ypos) oldcode =
+    let xstr = toString obj.x
+        ystr = toString obj.y
+    in subStr xstr xpos oldcode |> subStr ystr ypos
+
+--Takes a string to substitute, a position of that string, and makes the
+-- substitution. Does absolutely no checking of if anything is at all how it's
+-- supposed to be.
+subStr : String -> Int -> String -> String
+subStr newVal valpos oldcode = String.concat
+    [ String.left valpos oldcode
+    , newVal
+    , String.dropLeft valpos oldcode |> String.split " " |> List.drop 1 |>
+      (\x -> if x == [] then "" else " " ++ String.join " " x)
+    ]

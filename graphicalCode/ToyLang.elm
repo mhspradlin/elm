@@ -16,6 +16,7 @@ import List ((::))
 import List
 --String library
 import String
+import Debug
 
 --The possible tokens that can be used in the toy language 
 type Token = Square (Var Float) (Var Float) | And
@@ -101,19 +102,20 @@ parseCode code = List.filter (not << isAnd) (tokenize code) |> List.map toForm
 -- position
 --There is a long way to go with this one; probably need to ID the objects and
 -- associated constants and then related parts of syntax... hmm...
-parseObjects : (GC.Form, Int, Int) -> String -> String
-parseObjects (obj, xpos, ypos) oldcode =
+parseObject : (GC.Form, Int, Int) -> String -> String
+parseObject (obj, xpos, ypos) oldcode =
     let xstr = toString obj.x
         ystr = toString obj.y
-    in subStr xstr xpos oldcode |> subStr ystr ypos
+    in subStr (xstr, ystr) (xpos, ypos) oldcode
 
---Takes a string to substitute, a position of that string, and makes the
--- substitution. Does absolutely no checking of if anything is at all how it's
+--Takes strings to substitute, positions of those strings, and makes the
+-- substitutions. Does absolutely no checking of if anything is at all how it's
 -- supposed to be.
-subStr : String -> Int -> String -> String
-subStr newVal valpos oldcode = String.concat
-    [ String.left valpos oldcode
-    , newVal
-    , String.dropLeft valpos oldcode |> String.split " " |> List.drop 1 |>
-      (\x -> if x == [] then "" else " " ++ String.join " " x)
+subStr : (String, String) -> (Int, Int) -> String -> String
+subStr (nx, ny) (px, py) oldcode = String.concat
+    [ String.left px oldcode
+    , nx
+    , " "
+    , ny
+    , String.dropLeft (py + String.length ny) oldcode
     ]

@@ -1,6 +1,8 @@
 -- ToyLang.elm
 -- This code defines a toy language for rendering simple graphics.
 
+--Note: This is not compatible with the changes made in version 0.15 of Elm
+
 -- Mitch Spradlin
 -- 2015-04-05
 
